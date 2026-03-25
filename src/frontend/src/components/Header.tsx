@@ -62,7 +62,7 @@ export default function Header({ charCount }: HeaderProps) {
               textShadow: "none",
             }}
           >
-            IQC 2026 — Alpha Launchpad
+            AlphaForge
           </h1>
           <p
             className="text-xs"
@@ -115,7 +115,7 @@ export default function Header({ charCount }: HeaderProps) {
             letterSpacing: "0.05em",
           }}
         >
-          IQC 2026
+          AlphaForge
         </div>
       </div>
     </header>

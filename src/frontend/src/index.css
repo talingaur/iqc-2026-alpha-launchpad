@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Self-hosted Fonts ─────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/JetBrainsMono-Medium.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/assets/fonts/Inter-Regular.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ─── Base Layer ────────────────────────────────────────────────────────── */
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* IQC Dark Theme - Navy/Blue Palette */
+    --background: 0.102 0.022 257;
+    --foreground: 0.897 0.012 257;
+    --card: 0.118 0.025 257;
+    --card-foreground: 0.897 0.012 257;
+    --popover: 0.13 0.028 257;
+    --popover-foreground: 0.897 0.012 257;
+    --primary: 0.582 0.202 259;
+    --primary-foreground: 0.98 0.005 257;
+    --secondary: 0.13 0.028 257;
+    --secondary-foreground: 0.75 0.02 257;
+    --muted: 0.15 0.025 257;
+    --muted-foreground: 0.52 0.02 257;
+    --accent: 0.58 0.18 232;
+    --accent-foreground: 0.98 0.005 257;
+    --destructive: 0.625 0.225 27;
+    --destructive-foreground: 0.98 0.005 257;
+    --border: 0.18 0.03 257;
+    --input: 0.18 0.03 257;
+    --ring: 0.582 0.202 259;
+    --chart-1: 0.582 0.202 259;
+    --chart-2: 0.58 0.18 232;
+    --chart-3: 0.72 0.18 95;
+    --chart-4: 0.625 0.225 27;
+    --chart-5: 0.7 0.18 152;
+    --sidebar: 0.118 0.025 257;
+    --sidebar-foreground: 0.897 0.012 257;
+    --sidebar-primary: 0.582 0.202 259;
+    --sidebar-primary-foreground: 0.98 0.005 257;
+    --sidebar-accent: 0.15 0.025 257;
+    --sidebar-accent-foreground: 0.75 0.02 257;
+    --sidebar-border: 0.18 0.03 257;
+    --sidebar-ring: 0.582 0.202 259;
+
+    /* App-specific tokens */
+    --app-bg: #0a0d14;
+    --editor-bg: #0c0e17;
+    --panel-bg: #10131e;
+    --border-color: #1a1d2e;
+    --border-color-bright: #252840;
+    --blue-accent: #3b82f6;
+    --cyan-accent: #06b6d4;
+    --warning: #f59e0b;
+    --success: #10b981;
+    --error: #ef4444;
+    --muted-text: #5a6078;
+    --text-primary: #e2e8f0;
+    --text-secondary: #8892a8;
+
+    /* Syntax highlight colors */
+    --syn-cyan: #06b6d4;
+    --syn-purple: #a855f7;
+    --syn-orange: #f97316;
+    --syn-green: #22c55e;
+    --syn-teal: #67e8f9;
+    --syn-amber: #fbbf24;
+    --syn-slate: #94a3b8;
+
+    /* Font families */
+    --font-ui: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code", monospace;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--app-bg);
+    color: var(--text-primary);
+    font-family: var(--font-ui);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-color-bright);
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #353858;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: rgba(59, 130, 246, 0.28);
+    color: #e2e8f0;
+  }
+}
+
+/* ─── Utility Layer ─────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .font-mono-editor {
+    font-family: var(--font-mono);
+  }
+
+  /* Editor dot-grid background — depth texture */
+  .editor-dot-grid {
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+    background-size: 20px 20px;
+  }
+
+  /* Editor focus ring — pure CSS, no JS needed */
+  .editor-wrapper:focus-within {
+    border-color: rgba(59, 130, 246, 0.45) !important;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2), 0 0 24px
+      rgba(59, 130, 246, 0.1), inset 0 0 40px rgba(59, 130, 246, 0.02);
+  }
+
+  /* Auditor banner: left-accent style */
+  .auditor-banner {
+    border-left-width: 3px !important;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-radius: 0 6px 6px 0;
+  }
+  .auditor-banner-error {
+    border-left-color: #ef4444;
+    background: linear-gradient(
+      90deg,
+      rgba(239, 68, 68, 0.08) 0%,
+      rgba(239, 68, 68, 0.03) 40%,
+      transparent 100%
+    );
+  }
+  .auditor-banner-warning {
+    border-left-color: #f59e0b;
+    background: linear-gradient(
+      90deg,
+      rgba(245, 158, 11, 0.08) 0%,
+      rgba(245, 158, 11, 0.03) 40%,
+      transparent 100%
+    );
+  }
+  .auditor-banner-success {
+    border-left-color: #10b981;
+    background: linear-gradient(
+      90deg,
+      rgba(16, 185, 129, 0.08) 0%,
+      rgba(16, 185, 129, 0.03) 40%,
+      transparent 100%
+    );
+  }
+  .auditor-banner-idle {
+    border-left-color: var(--border-color-bright);
+    background: transparent;
+  }
+
+  /* Operator row left-accent hover */
+  .op-row-hover {
+    position: relative;
+  }
+  .op-row-hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    border-radius: 2px;
+    background: transparent;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+  }
+  .op-row-hover:hover::before {
+    background: var(--cyan-accent);
+    box-shadow: 0 0 6px rgba(6, 182, 212, 0.5);
+  }
+
+  /* Animated entry for auditor banners */
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .animate-slide-in {
+    animation: slide-in-left 0.18s ease-out both;
+  }
+
+  /* Header ambient glow */
+  .header-glow-blue {
+    box-shadow: 0 1px 0 var(--border-color), 0 4px 24px rgba(59, 130, 246, 0.06);
+  }
+
+  /* Section label style */
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-text);
+  }
+}

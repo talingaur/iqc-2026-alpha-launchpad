@@ -1,10 +1,10 @@
 import { useCallback, useRef, useState } from "react";
+import AlphaAdvisor from "./components/AlphaAdvisor";
 import AlphaLibrary from "./components/AlphaLibrary";
 import FormulaEditor, {
   type FormulaEditorHandle,
 } from "./components/FormulaEditor";
 import Header from "./components/Header";
-import LogicAuditor from "./components/LogicAuditor";
 import OperatorSidebar from "./components/OperatorSidebar";
 
 const SAMPLE_FORMULA =
@@ -54,9 +54,9 @@ export default function App() {
               />
             </section>
 
-            {/* Logic Auditor */}
+            {/* Alpha Advisor */}
             <section>
-              <LogicAuditor formula={formula} />
+              <AlphaAdvisor formula={formula} />
             </section>
 
             {/* Alpha Library divider */}
